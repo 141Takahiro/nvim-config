@@ -1,6 +1,10 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.fileencodings = "utf-8,ucs-bom,iso-2022-jp,euc-jp,cp932"
+vim.opt.fileformat = "unix"
 vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.keymap.set('n', '<space>ge', vim.diagnostic.open_float)
