@@ -1,3 +1,6 @@
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+	vim.cmd([[set t_WS=]])
+end
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
@@ -24,6 +27,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+	end,
+})
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		require("nvim-tree.api").tree.open()
+		vim.cmd("wincmd l")
 	end,
 })
 
