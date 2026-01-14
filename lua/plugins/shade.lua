@@ -11,7 +11,9 @@ return {
 					"toggleterm",
 					"term",
 					"prompt",
-					"neogitstatus"
+					"neogitstatus",
+					"neogitcommit",
+					"gitcommit",
 				},
 			})
 		end,
