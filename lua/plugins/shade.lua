@@ -14,6 +14,7 @@ return {
 					"neogitstatus",
 					"neogitcommit",
 					"gitcommit",
+					"noice",
 				},
 			})
 		end,

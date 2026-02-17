@@ -29,12 +29,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	end,
 })
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		require("nvim-tree.api").tree.open()
-		vim.cmd("wincmd l")
-	end,
-})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
