@@ -1,3 +1,4 @@
+-- コード内のcolorコードをヴィジュアルで表示
 return {
 	{
 		"brenoprata10/nvim-highlight-colors",

@@ -1,3 +1,4 @@
+-- key操作のカンニングペーパーを表示する
 return {
 	{
 		"folke/which-key.nvim",

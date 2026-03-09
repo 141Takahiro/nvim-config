@@ -3,7 +3,7 @@ return {
 	event = 'VimEnter',
 	config = function()
 		require('dashboard').setup({
-			theme = 'hyper', -- ほかにも 'doom' などが選べます
+			theme = 'hyper',
 			config = {
 				header = {
 					"",

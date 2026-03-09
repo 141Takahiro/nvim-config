@@ -11,6 +11,6 @@ return {
 		map("n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" })
 		map("n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" })
 
-		map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find TODOs" })
+		map("n", "<leader>todo", "<cmd>TodoTelescope<cr>", { desc = "Find TODOs" })
 	end
 }
