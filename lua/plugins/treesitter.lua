@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		-- tag = "v0.9.2",
+		commit = "42fc28b",
 		build = ":TSUpdate",
 		lazy = false,
 		config = function()
@@ -10,8 +10,22 @@ return {
 
 			configs.setup({
 				ensure_installed = {
-					"tsx", "typescript", "javascript", "php", "lua", "vim", "sql", "yaml",
-					"dockerfile"
+					"tsx",
+					"html",
+					"css",
+					"json",
+					"gitignore",
+					"typescript",
+					"javascript",
+					"php",
+					"lua",
+					"sql",
+					"yaml",
+					"dockerfile",
+					"regex",
+					"bash",
+					"markdown",
+					"markdown_inline",
 				},
 				highlight = {
 					enable = true,

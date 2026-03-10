@@ -1,3 +1,10 @@
+-- Neovim 0.11.0以降あるファイルを誤魔化している
+if vim.treesitter.language.get_lang and not vim.treesitter.language.ft_to_lang then
+	vim.treesitter.language.ft_to_lang = function(ft)
+		return vim.treesitter.language.get_lang(ft) or ft
+	end
+end
+
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then -- version違いを防止するおまじない
 	vim.cmd([[set t_WS=]])
 end
@@ -127,6 +134,32 @@ vim.keymap.set('n', ';p', function()
 	print("POPが見つかりません。")
 end, { desc = "Jump to POP" })
 
+
+local is_transparent = false
+local function toggle_transparency()
+	if not is_transparent then
+		-- 透明化を実行
+		local groups = {
+			"Normal", "NormalNC", "SignColumn", "FoldColumn", "EndOfBuffer", "LineNr",
+			"NvimTreeNormal", "NvimTreeNormalNC", "NvimTreeWinSeparator", "NvimTreeEndOfBuffer",
+			"WinSeparator", "NvimTreeIndentMarker", "NvimTreeSignColumn",
+			"DiagnosticSignError", "DiagnosticSignWarn", "DiagnosticSignInfo", "DiagnosticSignHint",
+		}
+		for _, group in ipairs(groups) do
+			vim.api.nvim_set_hl(0, group, { bg = "NONE", ctermbg = "NONE" })
+		end
+		is_transparent = true
+		print("Transparency: ON")
+	else
+		local colorscheme = vim.g.colors_name or "default"
+		vim.cmd("colorscheme " .. colorscheme)
+		is_transparent = false
+		print("Trans: OFF")
+	end
+end
+vim.api.nvim_create_user_command("Transparent", toggle_transparency, {})
+
+
 -- lazy(プラグインマネージャーの導入)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -140,4 +173,9 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+	rocks = {
+		enabled = false,
+		hererocks = false,
+	},
+})
