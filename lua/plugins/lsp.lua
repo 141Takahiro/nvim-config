@@ -52,7 +52,7 @@ return {
 							"Phar", "readline", "recode", "Reflection", "regex", "session",
 							"SimpleXML", "snmp", "soap", "sockets", "standard", "tokenizer",
 							"xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "zip", "zlib",
-							"laravel", "phpunit"
+							"laravel", "phpunit", "SPL"
 						},
 						diagnostics = {
 							enable = true,
